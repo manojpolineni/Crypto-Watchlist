@@ -1,7 +1,7 @@
 import { useWatchlist } from "../context/WatchlistContext";
 
 const Watchlist = () => {
-  const { watchlists, removeFromWatchlist, removeWatchlist } = useWatchlist();
+  const { watchlists, removeFromWatchlist, removeWatchlist } = useWatchlist(); 
 
   return (
     <div className="p-5">
@@ -20,7 +20,7 @@ const Watchlist = () => {
             <ul>
               {cryptos.map((crypto, index) => (
                 <li
-                  key={`${listName}-${crypto.symbol}-${index}`}
+                  key={`${listName}-${crypto.id}-${index}`}
                   className="flex justify-between p-3 border-b"
                 >
                   <span>
@@ -28,13 +28,14 @@ const Watchlist = () => {
                   </span>
                   <button
                     className="bg-red-500 text-white px-2 py-1 rounded"
-                    onClick={() => removeFromWatchlist(listName, crypto.symbol)}
+                    onClick={() => removeFromWatchlist(listName, crypto.id)}
                   >
                     Remove
                   </button>
                 </li>
               ))}
             </ul>
+
             <button
               className="text-red-500 mt-3"
               onClick={() => removeWatchlist(listName)}

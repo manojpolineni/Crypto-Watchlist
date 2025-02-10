@@ -1,53 +1,42 @@
-interface CryptoCardProps {
-  crypto: {
-    symbol: string;
-    lastPrice: string;
-    priceChangePercent: string;
-  };
-  isInWatchlist: boolean; 
-  onAddToWatchlist?: () => void;
-  onRemoveFromWatchlist?: () => void;
-}
+import { CryptoCardProps } from "../types";
 
 const CryptoCard: React.FC<CryptoCardProps> = ({
   crypto,
   isInWatchlist,
   onAddToWatchlist,
-  onRemoveFromWatchlist,
+
 }) => {
   return (
-    <div className="border p-4 rounded-md shadow-md bg-white">
-      <h3 className="text-lg font-semibold">{crypto.symbol}</h3>
-      <p className="text-gray-600">
-        Price: ${parseFloat(crypto.lastPrice).toFixed(2)}
-      </p>
+    <div className="p-4 rounded-lg shadow-md bg-gray-100 dark:bg-gray-800">
+      <h2 className="font-bold text-lg text-black dark:text-white">
+        {crypto.name} ( {crypto.symbol.slice(0,3)})
+      </h2>
+      <p className="text-green-500"> 💲 {crypto.lastPrice}</p>
+      
       <p
-        className={`${
-          parseFloat(crypto.priceChangePercent) >= 0
-            ? "text-green-500"
-            : "text-red-500"
+        className={`font-semibold ${
+          parseFloat(crypto.priceChangePercent) < 0
+            ? "text-red-500"
+            : "text-green-500"
         }`}
       >
-        {parseFloat(crypto.priceChangePercent).toFixed(2)}%
+        📈 24h:  {crypto.priceChangePercent}%
       </p>
 
-      {!isInWatchlist && onAddToWatchlist && (
+      {isInWatchlist ? (
+        <button className="mt-2  bg-blue-500 text-white px-4 py-2 rounded w-full">
+          Added
+        </button>
+      ) : (
         <button
+          className="mt-2 bg-blue-400 flex justify-center mx-auto cursor-pointer text-white px-4 py-2 rounded w-auto"
           onClick={onAddToWatchlist}
-          className="mt-2 bg-blue-500 text-white px-4 py-2 cursor-pointer rounded-md"
-        >
+          >
+            
           Add to Watchlist
         </button>
       )}
-
-      {isInWatchlist && onRemoveFromWatchlist && (
-        <button
-          onClick={onRemoveFromWatchlist}
-          className="mt-2 bg-red-500 text-white px-4 py-2 rounded-md"
-        >
-          Remove
-        </button>
-      )}
+      
     </div>
   );
 };

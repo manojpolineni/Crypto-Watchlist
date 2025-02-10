@@ -5,9 +5,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav
-      className={`flex justify-between items-center p-4 dark:text-white md:shadow-lg dark:md:shadow-2xl`}
-    >
+    <nav className={`flex justify-between items-center p-4 dark:text-white md:shadow-lg dark:md:shadow-2xl`}>
       <h1 className="text-lg font-bold">Crypto Watchlist</h1>
       <button
         onClick={toggleTheme}

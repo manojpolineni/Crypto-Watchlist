@@ -52,7 +52,7 @@ const Sidebar = () => {
       <aside
         className={`hidden md:block w-64 h-screen p-5 ${
           theme === "dark"
-            ? "bg-gray-900 text-white shadow-lg"
+            ? "bg-[#1a202c] text-white shadow-xl border-lg"
             : "bg-white text-gray-900 shadow-lg"
         }`}
       >
@@ -62,7 +62,11 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+                className={`${
+                  theme === "dark"
+                    ? "hover:bg-gray-700 text-white"
+                    : " hover:bg-gray-300 text-black "
+                } block py-2 px-3 rounded-md  mt-5 `}
               >
                 Dashboard
               </Link>
@@ -70,7 +74,11 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/watchlist"
-                className="block py-2 px-3 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+                className={`${
+                  theme === "dark"
+                    ? "hover:bg-gray-700 text-white"
+                    : " hover:bg-gray-300 text-black"
+                } block py-2 px-3 rounded-md  mt-5 `}
               >
                 My Watchlist
               </Link>
