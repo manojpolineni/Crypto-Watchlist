@@ -35,7 +35,6 @@ const Watchlist = () => {
                 </li>
               ))}
             </ul>
-
             <button
               className="text-red-500 mt-3"
               onClick={() => removeWatchlist(listName)}

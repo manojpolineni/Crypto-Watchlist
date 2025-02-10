@@ -10,9 +10,7 @@ export const fetchCryptoPrices = async (page: number): Promise<Crypto[]> => {
     const start = (page - 1) * 50;
     const end = start + 50;
 
-    // Ensure unique keys by combining multiple properties
     const formattedData = response.data.slice(start, end).map((crypto: any) => ({
-      id: `${crypto.symbol}-${crypto.priceChangePercent}-${Math.random().toString(36).substr(2, 5)}`, // Unique key
       name: crypto.symbol,
       symbol: crypto.symbol,
       lastPrice: parseFloat(crypto.lastPrice).toFixed(2),

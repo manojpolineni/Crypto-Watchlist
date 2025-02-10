@@ -41,7 +41,6 @@ const CryptoListPage = () => {
   }, [page]);
 
 
-  // Infinite Scroll Handler
   useEffect(() => {
     const handleScroll = () => {
       if (
@@ -75,8 +74,6 @@ const CryptoListPage = () => {
           theme === "dark" ? "placeholder:text-white " : ""
         } `}
       />
-
-      {/* Crypto List */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredCryptos.map((crypto) => (
           <div
@@ -107,9 +104,6 @@ const CryptoListPage = () => {
           </div>
         ))}
       </div> 
-      
-
-      {/* Loading Indicator */}
       {loading && <p className="text-center mt-4">Loading more data...</p>}
     </div>
   );

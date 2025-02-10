@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useWatchlist } from "../context/WatchlistContext";
-import { Crypto } from "../types"; // Import the Crypto type
+import { Crypto } from "../types"; 
 
 interface CryptoCardProps {
   crypto: Crypto;

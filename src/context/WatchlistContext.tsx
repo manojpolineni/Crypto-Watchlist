@@ -76,7 +76,6 @@ export const WatchlistProvider = ({
 
 
   const removeWatchlist = (listName: string) => {
-    console.log(`Removing watchlist: ${listName}`);
 
     setWatchlists((prev) => {
       const updated = { ...prev };
@@ -89,7 +88,6 @@ export const WatchlistProvider = ({
   };
 
   useEffect(() => {
-    console.log("Updated localStorage:", watchlists);
     localStorage.setItem("watchlists", JSON.stringify(watchlists));
   }, [watchlists]);
 

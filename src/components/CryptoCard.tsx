@@ -4,7 +4,7 @@ interface CryptoCardProps {
     lastPrice: string;
     priceChangePercent: string;
   };
-  isInWatchlist: boolean; // New prop to check if crypto is in the watchlist
+  isInWatchlist: boolean; 
   onAddToWatchlist?: () => void;
   onRemoveFromWatchlist?: () => void;
 }
