@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Default Light Mode */
+html {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+html.dark {
+  background-color: #1a202c;
+  color: white;
+}
